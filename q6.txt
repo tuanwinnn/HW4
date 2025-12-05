@@ -1,0 +1,12 @@
+1. No, the change inside increment_int_a does NOT change the variable a after the function call.
+
+2. Yes, the change inside increment_int_b DOES change the variable b after the function call.
+
+3. They differ because integers are immutable and passed by value, while dictionaries are mutable and passed by reference. 
+
+In increment_int_a, when someval += 1 executes, it creates a new integer object locally inside the function. 
+The original variable 'a' in main() remains unchanged at 32 because integers cannot be modified in place.
+
+In increment_int_b, when someval['32'] += 1 executes, it modifies the dictionary object itself. 
+Since 'someval' references the same dictionary object as 'b' in main(), the change affects the original dictionary. 
+After the function call, b['32'] will be 1 instead of 0.

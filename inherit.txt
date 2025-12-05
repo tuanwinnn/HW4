@@ -1,0 +1,9 @@
+Code Reusability and Reducing Redundancy
+
+Inheritance lets you define common attributes and methods once in a parent class, 
+then reuse them across multiple child classes without duplicating code.
+
+Establishing Relationships and Polymorphism
+
+Inheritance models real-world "is-a" relationships and allows different objects to be treated uniformly 
+through a common interface while maintaining their specific behaviors.
