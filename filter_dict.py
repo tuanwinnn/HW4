@@ -1,19 +1,16 @@
-def filter_young(input_dict):
-    # Get list of names (keys)
-    names = list(input_dict.keys())
+def filter_young(dictionary):
+    # Filter people under 30
+    result = []
     
-    # Sort names in reverse order (without using built-in sort)
-    n = len(names)
+    for name, (phone, age) in dictionary.items():
+        if age < 30:
+            result.append((name, phone))
+    
+    # Sort alphabetically by name
+    n = len(result)
     for i in range(n):
         for j in range(0, n - i - 1):
-            if names[j] < names[j + 1]:
-                # Swap elements for reverse order
-                names[j], names[j + 1] = names[j + 1], names[j]
-    
-    # Build result list with (name, phone_number) tuples
-    result = []
-    for name in names:
-        phone_number = input_dict[name][0]  # First element of tuple is phone
-        result.append((name, phone_number))
+            if result[j][0] > result[j + 1][0]:
+                result[j], result[j + 1] = result[j + 1], result[j]
     
     return result
