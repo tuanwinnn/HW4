@@ -1,6 +1,6 @@
 # ladder.py
 
-def my_steps(n):
+def count_ways(n):
     if not isinstance(n, int) or n < 1 or n > 25:
         raise ValueError("n must be an integer between 1 and 25")
 
