@@ -2,12 +2,13 @@ def filter_young(dictionary):
     result = []
     
     # Filter people under 30
-    for name in dictionary:
-        phone, age = dictionary[name]
+    for name, value in dictionary.items():
+        phone = value[0]
+        age = value[1]
         if age < 30:
             result.append((name, phone))
     
-    # Sort alphabetically by name
+    # Sort alphabetically by name (ascending)
     n = len(result)
     for i in range(n):
         for j in range(0, n - i - 1):
