@@ -1,23 +1,27 @@
-def filter_young(data):
+# sorted.py
+
+def reverse_sort_dictionary(data):
     if not isinstance(data, dict):
         raise TypeError("Input must be a dictionary")
-    
+
     result = []
-    
+
     for name, value in data.items():
+        # Expect a tuple (phone, age)
         if not isinstance(value, tuple) or len(value) < 2:
             raise TypeError("Each value must be a (phone, age) tuple")
-        
+
         phone, age = value[0], value[1]
-        
+
+        # Only include people strictly under 30
         if age < 30:
             result.append((name, phone))
-    
-    # Bubble sort by name (no built-in sort)
-    n = len(result)
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if result[j][0] > result[j + 1][0]:
-                result[j], result[j + 1] = result[j + 1], result[j]
-    
+
+    # Sort by name in ascending order (Alice, Bob, ...)
+    result.sort(key=lambda item: item[0])
     return result
+
+
+# keep your function name too, if you want to use it anywhere else
+def filter_young(data):
+    return reverse_sort_dictionary(data)
