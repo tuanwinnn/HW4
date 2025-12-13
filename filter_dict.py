@@ -1,8 +1,9 @@
 def filter_young(dictionary):
-    # Filter people under 30
     result = []
     
-    for name, (phone, age) in dictionary.items():
+    # Filter people under 30
+    for name in dictionary:
+        phone, age = dictionary[name]
         if age < 30:
             result.append((name, phone))
     

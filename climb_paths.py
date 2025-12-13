@@ -3,12 +3,12 @@ def count_ways(n):
         raise ValueError
     
     if n == 1:
-        return 2  # Changed from 1
+        return 1
     if n == 2:
-        return 3  # Changed from 2
+        return 2
     
-    prev2 = 2
-    prev1 = 3
+    prev2 = 1
+    prev1 = 2
     
     for i in range(3, n + 1):
         current = prev1 + prev2
