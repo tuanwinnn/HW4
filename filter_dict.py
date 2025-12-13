@@ -7,13 +7,16 @@ def filter_young(data):
     result = []
 
     for name, value in data.items():
-        # Expect a tuple like (phone, age)
-        if not isinstance(value, tuple) or len(value) < 1:
-            raise TypeError("Each value must be a tuple like (phone, age)")
+        # Expect a tuple (phone, age)
+        if not isinstance(value, tuple) or len(value) < 2:
+            raise TypeError("Each value must be a (phone, age) tuple")
 
-        phone = value[0]
-        result.append((name, phone))
+        phone, age = value[0], value[1]
 
-    # reverse sort by name (Z → A)
-    result.sort(key=lambda item: item[0], reverse=True)
+        # Only include people strictly under 30
+        if age < 30:
+            result.append((name, phone))
+
+    # Sort by name in ascending order: Alice, Bob, ...
+    result.sort(key=lambda item: item[0])
     return result
