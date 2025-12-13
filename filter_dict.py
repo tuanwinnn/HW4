@@ -7,11 +7,11 @@ def reverse_sort_dictionary(data):
     result = []
 
     for name, value in data.items():
-        # Expect a tuple (phone, age)
+        # Expect a tuple (age, phone)
         if not isinstance(value, tuple) or len(value) < 2:
-            raise TypeError("Each value must be a (phone, age) tuple")
+            raise TypeError("Each value must be an (age, phone) tuple")
 
-        phone, age = value[0], value[1]
+        age, phone = value[0], value[1]  # 🔁 swapped order
 
         # Only include people strictly under 30
         if age < 30:
@@ -22,6 +22,5 @@ def reverse_sort_dictionary(data):
     return result
 
 
-# keep your function name too, if you want to use it anywhere else
 def filter_young(data):
     return reverse_sort_dictionary(data)
