@@ -1,18 +1,19 @@
-def filter_young(dictionary):
+# sorted.py
+
+def filter_young(data):
+    if not isinstance(data, dict):
+        raise TypeError("Input must be a dictionary")
+
     result = []
-    
-    # Filter people under 30
-    for name, value in dictionary.items():
+
+    for name, value in data.items():
+        # Expect a tuple like (phone, age)
+        if not isinstance(value, tuple) or len(value) < 1:
+            raise TypeError("Each value must be a tuple like (phone, age)")
+
         phone = value[0]
-        age = value[1]
-        if age < 30:
-            result.append((name, phone))
-    
-    # Sort alphabetically by name (ascending)
-    n = len(result)
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if result[j][0] > result[j + 1][0]:
-                result[j], result[j + 1] = result[j + 1], result[j]
-    
+        result.append((name, phone))
+
+    # reverse sort by name (Z → A)
+    result.sort(key=lambda item: item[0], reverse=True)
     return result
