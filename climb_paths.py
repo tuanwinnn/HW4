@@ -1,4 +1,4 @@
-def my_steps(n):
+def count_ways(n):
     if n < 1 or n > 25:
         raise ValueError
     

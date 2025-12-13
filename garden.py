@@ -1,4 +1,4 @@
-def cacti_number(plot):
+def max_flowers(plot):
     if not plot or len(plot) == 0:
         return 0
     
