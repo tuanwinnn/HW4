@@ -1,4 +1,4 @@
-def reverse_sort_dictionary(input_dict):
+def filter_young(input_dict):
     # Get list of names (keys)
     names = list(input_dict.keys())
     

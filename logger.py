@@ -1,7 +1,7 @@
 import time
 
 def log_time(func):
-    def wrapper():
+    def wrapper(*args, **kwargs):
         print(time.ctime())
-        func()
+        return func(*args, **kwargs)
     return wrapper
