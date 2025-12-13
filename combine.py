@@ -1,4 +1,4 @@
-def merge_list(list1, list2):
+def combine_lists(list1, list2):
     # Validate inputs are lists
     if not isinstance(list1, list) or not isinstance(list2, list):
         raise TypeError
